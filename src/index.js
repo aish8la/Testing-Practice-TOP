@@ -19,5 +19,11 @@ export const calculator = {
     subtract: (num1, num2) => {
         if(typeof num1 !== "number" || typeof num2 !== "number") return
         return num1 - num2;
+    },
+
+    divide: (num1, num2) => {
+        if(num1 === 0) return 0;
+        if(typeof num1 !== "number" || typeof num2 !== "number" || num2 === 0) return
+        return num1 / num2;
     }
 }
