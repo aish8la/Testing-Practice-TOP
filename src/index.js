@@ -9,3 +9,15 @@ export function reverseString(text) {
     if(typeof text !== "string" || !text) return
     return [...text].reverse().join("");
 }
+
+export const calculator = {
+    add: (num1, num2) => {
+        if(typeof num1 !== "number" || typeof num2 !== "number") return
+        return num1 + num2;
+    },
+
+    subtract: (num1, num2) => {
+        if(typeof num1 !== "number" || typeof num2 !== "number") return
+        return num1 - num2;
+    }
+}
