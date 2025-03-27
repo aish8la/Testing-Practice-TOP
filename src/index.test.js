@@ -16,3 +16,16 @@ test("Reverses string", () => {
     expect(funcs.reverseString({hello: "world"})).toBeUndefined();
 });
 
+test("Calculator Object exists", () => {
+    expect(funcs.calculator).toBeDefined();
+});
+
+test("Add two values", () => {
+    expect(funcs.calculator.add(2, 2)).toBe(4);
+    expect(funcs.calculator.add("hello", 4)).toBeUndefined();
+});
+
+test("Subtract two values", () => {
+    expect(funcs.calculator.subtract(8, 4)).toBe(4);
+    expect(funcs.calculator.subtract("hello", 4)).toBeUndefined();
+});
