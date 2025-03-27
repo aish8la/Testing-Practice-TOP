@@ -29,3 +29,10 @@ test("Subtract two values", () => {
     expect(funcs.calculator.subtract(8, 4)).toBe(4);
     expect(funcs.calculator.subtract("hello", 4)).toBeUndefined();
 });
+
+test("Divide two values", () => {
+    expect(funcs.calculator.divide(12, 3)).toBe(4);
+    expect(funcs.calculator.divide(0, 3)).toBe(0);
+    expect(funcs.calculator.divide(12, 0)).toBeUndefined();
+    expect(funcs.calculator.divide("hello", 4)).toBeUndefined();
+});
