@@ -32,7 +32,14 @@ test("Subtract two values", () => {
 
 test("Divide two values", () => {
     expect(funcs.calculator.divide(12, 3)).toBe(4);
-    expect(funcs.calculator.divide(0, 3)).toBe(0);
+    expect(funcs.calculator.divide(0, -3)).toBe(0);
     expect(funcs.calculator.divide(12, 0)).toBeUndefined();
     expect(funcs.calculator.divide("hello", 4)).toBeUndefined();
+});
+
+test("Multiply two values", () => {
+    expect(funcs.calculator.multiply(2, 2)).toBe(4);
+    expect(funcs.calculator.multiply(0, 3)).toBe(0);
+    expect(funcs.calculator.multiply(-3, 0)).toBe(0);
+    expect(funcs.calculator.multiply("hello", 4)).toBeUndefined();
 });
