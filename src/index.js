@@ -72,11 +72,13 @@ export const arrayTransform = {
     obj["length"] = array.length;
     obj["min"] = obj["max"] = array[0];
     let sum = 0;
-    array.forEach((value) => {
+
+    for (const value of array) {
+      if (typeof value !== "number") return;
       sum += value;
       if (value > obj["max"]) obj["max"] = value;
       if (value < obj["min"]) obj["min"] = value;
-    });
+    }
 
     obj["average"] = sum / obj["length"];
 
