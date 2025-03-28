@@ -33,3 +33,33 @@ export const calculator = {
         return num1 * num2;
     }
 }
+
+export const cipher = {
+
+    trueModulo(n, m) {
+        return ((n % m) + m) % m;
+    },
+
+    isUpper(char) {
+        return char === char.toUpperCase();
+    },
+
+    caesarCipher(text, shiftFact) {
+        let ciphered = '';
+
+        for(let i = 0; i < text.length; i++) {
+            const curChar = text.at(i);
+
+            if(!(/[a-zA-Z]/.test(curChar))) {
+                ciphered += curChar;
+                continue;
+            }
+            
+            const baseCode = this.isUpper(curChar) ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0); //base character code based on the case
+            const charIndex = (curChar.charCodeAt(0) - baseCode); //index / how far current character is from base code
+            const shiftedIndex = this.trueModulo(charIndex + shiftFact, 26); // shift the char index based on the shift factor and apply true modulo to normalize negatives
+            ciphered += String.fromCharCode(shiftedIndex + baseCode); // add shifted index to base code to get the ciphered character
+        }
+        return ciphered;
+    },
+}
