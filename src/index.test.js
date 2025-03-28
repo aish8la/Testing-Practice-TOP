@@ -43,3 +43,23 @@ test("Multiply two values", () => {
     expect(funcs.calculator.multiply(-3, 0)).toBe(0);
     expect(funcs.calculator.multiply("hello", 4)).toBeUndefined();
 });
+
+test("caesarCipher correctly ciphers", () => {
+    expect(funcs.cipher.caesarCipher('xyz', 3)).toBe('abc');
+});
+
+test("caesarCipher correctly outputs with same case", () => {
+    expect(funcs.cipher.caesarCipher('HeLLo', 3)).toBe('KhOOr');
+});
+
+test("caesarCipher correctly leaves punctuation unmodified", () => {
+    expect(funcs.cipher.caesarCipher('Hello, World!', 3)).toBe("Khoor, Zruog!");
+});
+
+test("caesarCipher correctly handles negative shift factors", () => {
+    expect(funcs.cipher.caesarCipher('AB', -8)).toBe("ST");
+});
+
+test("caesarCipher correctly handles large shift factors", () => {
+    expect(funcs.cipher.caesarCipher('AB', 50)).toBe("YZ");
+});
