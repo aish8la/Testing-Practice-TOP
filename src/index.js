@@ -68,6 +68,7 @@ export const cipher = {
 
 export const arrayTransform = {
   analyzeArray(array) {
+    if(!Array.isArray(array) || array.length === 0) return;
     const obj = {};
     obj["length"] = array.length;
     obj["min"] = obj["max"] = array[0];
