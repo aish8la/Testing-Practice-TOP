@@ -1,187 +1,53 @@
-# **Webpack Template Repository**
+# 🛠️ Webpack Utility Library
 
-This repository serves as a **template for Webpack projects**. It provides a structured Webpack setup with support for **CSS, images, and HTML**, ensuring easy configuration and extensibility.
-
----
-
-## **1. Installing Required Dependencies and Configurations**
-
-### **1.1 CSS Loaders (For Processing CSS Files)**
-
-#### Installation:
-```bash
-npm install --save-dev style-loader css-loader
-```
-
-#### Configuration:
-Modify `webpack.common.js` to include the CSS processing rules:
-
-```javascript
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-    ],
-  },
-};
-```
-
-### **1.2 HtmlWebpackPlugin (For Generating HTML Files and Injecting Scripts)**
-
-#### Installation:
-```bash
-npm install --save-dev html-webpack-plugin
-```
-
-#### Configuration:
-Modify `webpack.common.js` to include the HTML plugin:
-
-```javascript
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-module.exports = {
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-    }),
-  ],
-};
-```
-
-### **1.3 HTML Loader (For Importing HTML Files in JavaScript)**
-
-#### Installation:
-```bash
-npm install --save-dev html-loader
-```
-
-#### Configuration:
-Modify `webpack.common.js` to include HTML processing:
-
-```javascript
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-      },
-    ],
-  },
-};
-```
-
-### **1.4 Asset Modules (For Handling Images and Static Files)**
-
-#### Installation:
-```bash
-npm install --save-dev file-loader
-```
-
-#### Configuration:
-Modify `webpack.common.js` to handle images and static files:
-
-```javascript
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-      },
-    ],
-  },
-};
-```
-
-### **1.5 Babel Loader (For Transpiling Modern JavaScript)**
-
-#### Installation:
-```bash
-npm install -D babel-loader @babel/core @babel/preset-env webpack
-```
-
-#### Configuration:
-Modify `webpack.common.js` to include Babel processing:
-
-```javascript
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(?:js|mjs|cjs)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            targets: "defaults",
-            presets: [
-              ['@babel/preset-env']
-            ]
-          }
-        }
-      }
-    ]
-  }
-};
-```
+This project combines a ready-to-use **Webpack setup** with a collection of **JavaScript utility functions** for string manipulation, calculations, ciphers, and array analysis — complete with unit tests using Jest.
 
 ---
 
-## **2. Project Structure**
-Ensure your project has the following structure:
-```
-my-project/
-├── src/
-│   ├── index.js
-│   ├── index.html
-│   ├── styles.css
-│   ├── assets/
-│   │   ├── image.png
-├── dist/
-├── package.json
-├── webpack.common.js
-├── webpack.dev.js
-├── webpack.prod.js
-```
+## 📁 Project Features
+
+- **Custom Webpack Configuration**
+- **JavaScript Utility Modules**
+- **Unit Testing with Jest**
+- **Modular and Testable Codebase**
 
 ---
 
-## **3. Available npm Scripts**
+## 🔧 Utility Functions
 
-Modify `package.json` to include useful scripts:
+### 1. `capitalize(text)`
+Capitalizes the first letter of a string.
 
-```json
-"scripts": {
-  "start": "webpack serve --open --config webpack.dev.js",
-  "build": "webpack --config webpack.prod.js",
-  "lint": "eslint .",
-  "format": "prettier --write ."
-}
-```
+### 2. `reverseString(text)`
+Returns the reversed version of a given string.
 
-#### **Script Descriptions:**
-- **`start`** → Runs the Webpack development server with live reloading.
-- **`build`** → Creates a production-ready bundle.
-- **`lint`** → Runs ESLint for code quality checks.
-- **`format`** → Uses Prettier to format the code.
+### 3. `calculator` Object
+Performs basic arithmetic:
+- `add(a, b)`
+- `subtract(a, b)`
+- `multiply(a, b)`
+- `divide(a, b)`
+
+### 4. `cipher.caesarCipher(text, shift)`
+Implements Caesar Cipher shifting with support for:
+- Case preservation
+- Punctuation handling
+- Negative and large shift values
+
+### 5. `arrayTransform.analyzeArray(array)`
+Returns:
+- `average`
+- `min`
+- `max`
+- `length`  
+Fails safely if the array is empty or contains non-number types.
 
 ---
 
-## **4. Running Webpack**
+## 🧪 Testing
 
-After installing dependencies and configuring Webpack, start the development server:
+This project includes Jest tests for all utilities.
+
+### To run tests:
 ```bash
-npm run start
-```
-Or create a production build:
-```bash
-npm run build
-```
-
-Your Webpack project is now set up with **CSS, HTML, images, and essential scripts** for a streamlined workflow! 🚀
-
+npm test
