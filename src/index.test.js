@@ -63,3 +63,12 @@ test("caesarCipher correctly handles negative shift factors", () => {
 test("caesarCipher correctly handles large shift factors", () => {
   expect(funcs.cipher.caesarCipher("AB", 50)).toBe("YZ");
 });
+
+test("analyzeArray correctly returns object", () => {
+  expect(funcs.arrayTransform.analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({
+    average: 4,
+    min: 1,
+    max: 8,
+    length: 6,
+  });
+});
