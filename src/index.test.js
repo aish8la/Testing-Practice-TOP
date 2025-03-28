@@ -78,3 +78,9 @@ test("analyzeArray returns null if array contains non number data types", () => 
     funcs.arrayTransform.analyzeArray([1, 8, "Hello", 4, 2, 6]),
   ).toBeUndefined();
 });
+
+test("analyzeArray returns undefined if array is not provided or invalid", () => {
+  expect(funcs.arrayTransform.analyzeArray([])).toBeUndefined();
+  expect(funcs.arrayTransform.analyzeArray()).toBeUndefined();
+  expect(funcs.arrayTransform.analyzeArray("array")).toBeUndefined();
+});
