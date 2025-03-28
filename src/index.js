@@ -65,3 +65,21 @@ export const cipher = {
     return ciphered;
   },
 };
+
+export const arrayTransform = {
+  analyzeArray(array) {
+    const obj = {};
+    obj["length"] = array.length;
+    obj["min"] = obj["max"] = array[0];
+    let sum = 0;
+    array.forEach((value) => {
+      sum += value;
+      if (value > obj["max"]) obj["max"] = value;
+      if (value < obj["min"]) obj["min"] = value;
+    });
+
+    obj["average"] = sum / obj["length"];
+
+    return obj;
+  },
+};
