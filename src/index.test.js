@@ -72,3 +72,9 @@ test("analyzeArray correctly returns object", () => {
     length: 6,
   });
 });
+
+test("analyzeArray returns null if array contains non number data types", () => {
+  expect(
+    funcs.arrayTransform.analyzeArray([1, 8, "Hello", 4, 2, 6]),
+  ).toBeUndefined();
+});
